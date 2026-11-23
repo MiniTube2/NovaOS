@@ -1,0 +1,32 @@
+
+name: Build NovaOS ISO
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install live-build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y live-build
+
+      - name: Build NovaOS
+        run: |
+          sudo bash build.sh
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: NovaOS-Alpha-0.1
+          path: "*.iso"
+          if-no-files-found: error
+          retention-days: 7
