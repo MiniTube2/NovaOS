@@ -1,0 +1,15 @@
+linux-image-amd64
+live-boot
+live-config
+systemd-sysv
+kde-plasma-desktop
+sddm
+plasma-nm
+network-manager
+firefox-esr
+dolphin
+konsole
+ark
+sudo
+fonts-noto
+firmware-linux-free
